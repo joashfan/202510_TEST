@@ -1,0 +1,360 @@
+/* --- 基礎樣式 (與前一個範本相同) --- */
+:root {
+    --primary-color: #38761d; 
+    --secondary-color: #f7b733; 
+    --text-color: #333;
+    --light-bg: #f5f5f5; 
+    --dark-bg: #4a5d4d; 
+    --card-bg: #fff;
+    --max-width: 1200px;
+}
+/* ... 基礎樣式和桌面版樣式保持不變 ... */
+
+/* --- 導覽列優化 (手機版) --- */
+.main-header {
+    /* 移除桌面版對齊，讓手機版 Logo 和 Toggle 分佔左右 */
+    padding: 15px 15px;
+    max-width: none; /* 手機版佔滿寬度 */
+    justify-content: space-between;
+}
+
+.utility-nav {
+    display: none; /* 手機版隱藏 */
+}
+
+.menu-toggle {
+    display: block; /* 手機版顯示 */
+}
+
+/* 側滑選單樣式 */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px; /* 模擬 375px 寬度下的側滑選單寬度 */
+    height: 100%;
+    background-color: var(--card-bg);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%); /* 預設隱藏在右側 */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header.menu-open .side-menu {
+    transform: translateX(0); /* 打開選單 */
+}
+
+.close-menu {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 30px;
+}
+
+.side-menu .main-nav {
+    display: block;
+    flex-grow: 1; /* 佔滿中間空間 */
+}
+
+.side-menu .nav-links {
+    flex-direction: column;
+    list-style: none;
+}
+
+.side-menu .nav-links li {
+    margin: 10px 0;
+}
+
+.side-menu .nav-links a {
+    display: block;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--light-bg);
+    color: var(--text-color);
+}
+
+.side-menu .nav-links a.primary-bg {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.menu-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--light-bg);
+}
+
+.menu-login-btn {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* --- Hero 橫幅區優化 (手機版) --- */
+.hero-section {
+    background-color: var(--light-bg); /* 手機版移除背景圖，使用淺灰色 */
+    padding: 20px 0 20px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.hero-content {
+    padding: 0 15px;
+}
+
+.site-logo, .slogan {
+    display: none; /* 手機版首圖文字隱藏 */
+}
+
+.mobile-search-area {
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-placeholder {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+.dropdown-placeholder i {
+    float: right;
+    line-height: 1.5;
+}
+
+.search-bar {
+    max-width: 100%;
+    margin-bottom: 10px;
+    display: block; /* 確保佔滿寬度 */
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.hot-keywords {
+    text-align: left;
+    font-size: 13px;
+    color: var(--text-color);
+}
+
+.hot-keywords a {
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    background-color: var(--card-bg);
+}
+
+
+/* --- 內容區塊優化 (手機版) --- */
+.container {
+    padding: 0 15px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 特色區 (單欄堆疊) */
+.features-section {
+    padding-bottom: 0;
+}
+
+.feature-cards {
+    grid-template-columns: 1fr; /* 單欄 */
+    gap: 30px;
+}
+
+.feature-cards .card {
+    box-shadow: none; /* 移除陰影，更簡潔 */
+    border: 1px solid #eee;
+}
+
+.card-img {
+    height: 150px; /* 縮小圖片高度 */
+}
+
+/* 營地區 (熱門/最新 - 單欄堆疊，並調整為左右佈局) */
+.hot-campsites .campsite-cards {
+    grid-template-columns: 1fr; /* 單欄 */
+}
+
+.campsite-card {
+    display: flex;
+    box-shadow: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.campsite-card:hover {
+    transform: none; /* 移除 hover 效果 */
+}
+
+.campsite-card .card-img {
+    flex-shrink: 0;
+    width: 120px; /* 左側小圖 */
+    height: 90px;
+    margin-right: 15px;
+}
+
+.campsite-card .card-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.campsite-card h3 {
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.campsite-card p {
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.tags .tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: var(--primary-color);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+/* 露營知識區 (垂直堆疊) */
+.knowledge-section {
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.knowledge-content {
+    text-align: center;
+}
+
+.knowledge-content h2 {
+    text-align: center;
+}
+
+.knowledge-content h2::after {
+    margin: 10px auto 0;
+}
+
+.more-btn {
+    width: 100%;
+}
+
+
+/* --- 開始我們區塊 (手機版) --- */
+.start-section-mobile {
+    position: relative;
+    height: 180px; /* 模擬圖檔高度 */
+    background-color: var(--dark-bg);
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.start-bg {
+    background: url('placeholder-start-bg.jpg') center center/cover; /* 模擬背景山景 */
+    background-color: #4a5d4d;
+    opacity: 0.7;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.start-content {
+    position: relative;
+    z-index: 10;
+    color: var(--card-bg);
+    text-align: center;
+    padding-top: 40px;
+}
+
+.start-content h2 {
+    color: var(--card-bg);
+}
+
+.start-content h2::after {
+     background-color: var(--secondary-color);
+}
+
+/* --- 頁尾優化 (手機版) --- */
+.main-footer {
+    padding: 20px 15px;
+}
+
+.footer-content {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-text-block {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-logo {
+    order: 1;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    order: 2;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.footer-contact {
+    order: 3;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    order: 4;
+    font-size: 12px;
+}
