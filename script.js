@@ -3,12 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = document.querySelector('.close-menu');
     const mainHeader = document.querySelector('.main-header');
     
-    // 檢查元素是否存在
     if (menuToggle && closeMenu && mainHeader) {
         
         // 開啟選單
         menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // 防止點擊漢堡選單時關閉
+            e.stopPropagation();
             mainHeader.classList.add('menu-open');
             document.body.style.overflow = 'hidden'; // 鎖定背景滾動
         });
@@ -19,9 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = ''; // 恢復背景滾動
         });
         
-        // 點擊選單外部關閉 (可選)
+        // 可選：點擊選單外部關閉
         document.addEventListener('click', (e) => {
-            if (mainHeader.classList.contains('menu-open') && !e.target.closest('.side-menu') && !e.target.closest('.menu-toggle')) {
+            // 檢查是否為行動版 (簡單判斷是否有側邊選單開啟標記)
+            const isMobile = window.matchMedia("(max-width: 576px)").matches;
+            
+            if (isMobile && mainHeader.classList.contains('menu-open') && !e.target.closest('.side-menu') && !e.target.closest('.menu-toggle')) {
                 mainHeader.classList.remove('menu-open');
                 document.body.style.overflow = '';
             }
