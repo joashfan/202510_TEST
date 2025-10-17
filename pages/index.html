@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>野fun趣 - 露營生活提案</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <%- include('./layout/header'); -%>
+        <section class="hero-section">
+            <div class="hero-content">
+                <img src="/assets/images/LOGO_320x200.png" alt="">
+
+                <div class="search-bar">
+                    <input type="text" placeholder="輸入營地名稱、地區或關鍵字">
+                    <button type="submit"><i class="fas fa-search"></i> 搜尋</button>
+                </div>
+
+                <div class="hot-keywords">
+                    <span>熱門搜尋:</span>
+                    <a href="#" class="btn tag tag-outline">#可帶寵物</a>
+                    <a href="#" class="btn tag tag-outline">#免搭棚帳</a>
+                    <a href="#" class="btn tag tag-outline">#獨立衛浴</a>
+                    <a href="#" class="btn tag tag-outline">#適合親子</a>
+                    <a href="#" class="btn tag tag-outline">#4.5顆星以上</a>
+                    <a href="#" class="btn tag tag-outline">#機車友善</a>
+                    <a href="#" class="btn tag tag-outline">#車泊友善</a>
+                    <a href="#" class="btn tag tag-outline">#單人友善</a>
+                </div>
+            </div>
+        </section>
+
+        <main class="container">
+            <section class="features-section">
+                <h2>我們的特色</h2>
+                <div class="feature-cards">
+                    <div class="card">
+                        <div class="card-img placeholder-1"></div>
+                        <h3>找到一片風景</h3>
+                        <h3>也找到一種生活方式</h3>
+                        <p>貼近自然，享受原始的靜謐體驗。</p>
+                        <p>我們把隱落各地的露地資訊收進來，讓你在出發前，就與自然對話</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-img placeholder-2"></div>
+                        <h3>不追逐熱門</h3>
+                        <h3>只選最合你心意</h3>
+                        <p>用你在乎的條件，找到專屬自己的露營節奏。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-img placeholder-3"></div>
+                        <h3>不只是住宿</h3>
+                        <h3>是與自然對話</h3>
+                        <p>長期駐紮，享受大自然的長期陪伴。</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="position-relative">
+                    <div class="card position-relative" style="width: 23rem;">
+                        <img src="/assets/images/index/hightlight-1.png" class="card-img-top mb-3" alt="..."
+                            style=" height: 28rem;;">
+                        <div class="card-body">
+                            <p class="card-text">貼近自然，享受原始的靜謐體驗
+                                我們把隱落各地的露地資訊收進來，讓你在出發前，就與自然對話</p>
+                            <p></p>
+                        </div>
+                        <img src="/assets/images/index/Img_camp.png" alt="" class="camp-icon">
+
+                    </div>
+                    <p class="bg-primary-300 text-white fs-lg fw-bold index-lable-1">找到一片風景</p>
+                    <p class="bg-primary-300 text-white fs-lg fw-bold">也找到一種生活方式</p>
+                </div>
+
+            </section>
+
+            <hr>
+
+            <section class="campsites-section hot-campsites">
+                <h2>熱門營地</h2>
+                <div class="campsite-cards">
+                    <div class="campsite-card">
+                        <div class="card-img placeholder-campsite"></div>
+                        <h3>暮光山丘露營地</h3>
+                        <p>地點：南投魚池鄉</p>
+                        <p>眺望日月潭全景、提供懶人帳篷、夜晚可觀星拍銀河</p>
+                    </div>
+                    <div class="campsite-card">
+                        <div class="card-img placeholder-campsite"></div>
+                        <h3>松風谷野營場</h3>
+                        <p>地點：花蓮壽豐鄉</p>
+                        <p>原始林地環繞，可帶毛孩，有簡易步道直達溪谷</p>
+                    </div>
+                    <div class="campsite-card">
+                        <div class="card-img placeholder-campsite"></div>
+                        <h3>草原之心 Glamping</h3>
+                        <p>地點：台中東勢區</p>
+                        <p>獨立衛浴豪華帳，適合親子共遊，草原放風大空閒</p>
+                    </div>
+                    <div class="campsite-card">
+                        <div class="card-img placeholder-campsite"></div>
+                        <h3>水影森森營地</h3>
+                        <p>地點：宜蘭大同鄉</p>
+                        <p>湖畔景緻、森林浴營位，夏季可戲水划獨木舟</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="campsites-section new-campsites">
+                <h2>最新營地</h2>
+                <div class="campsite-cards">
+                    <div class="campsite-card small">
+                        <div class="card-img placeholder-new"></div>
+                        <h3>路徑森林帳篷村</h3>
+                        <p>地點：苗栗泰安鄉</p>
+                        <p>偶遇山鹿，提供星空晚餐體驗、冷泉溪畔玩水</p>
+                    </div>
+                    <div class="campsite-card small">
+                        <div class="card-img placeholder-new"></div>
+                        <h3>靜謐原野。野宿基地</h3>
+                        <p>地點：屏東霧台鄉</p>
+                        <p>高山原民風格、無光害觀星，限量營位私密性高</p>
+                    </div>
+                    <div class="campsite-card small">
+                        <div class="card-img placeholder-new"></div>
+                        <h3>藍岸微風營地</h3>
+                        <p>地點：澎湖白沙鄉</p>
+                        <p>面海帳篷，步行直達沙灘，附設BBQ料理區</p>
+                    </div>
+                    <div class="campsite-card small">
+                        <div class="card-img placeholder-new"></div>
+                        <h3>雲上小徑露營地</h3>
+                        <p>地點：阿里山石棹</p>
+                        <p>雲海日出美景、森林步道包圍，提供茶席體驗</p>
+                    </div>
+                </div>
+                <a href="#" class="more-btn">查看更多營地</a>
+            </section>
+
+            <hr>
+
+            <section class="knowledge-section">
+                <div class="image-placeholder placeholder-knowledge"></div>
+                <div class="knowledge-content">
+                    <h2>露營知識</h2>
+                    <p>選擇營地、備妥裝備，到了瞭解天氣、動物與急救常識，每個細節都是安心出遊的基礎。</p>
+                    <a href="#" class="more-btn">更多露營知識好文</a>
+                </div>
+            </section>
+
+        </main>
+
+        <section class="start-section">
+            <h2>關於我們</h2>
+            <p>探索露營技巧、裝備選擇和戶外安全須知，讓您的野外生活更豐富、更安全。我們定期更新文章，涵蓋從入門到進階挑戰的各種主題。</p> -->
+            <a href="#" class="start-btn">查看更多</a>
+        </section>
+        <%- include('./layout/footer'); -%>
+            <script type="module" src="../main.js"></script>
+            <script src="script.js"></script>
+</body>
+
+</html>

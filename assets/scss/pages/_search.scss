@@ -1,5 +1,25 @@
-.search-box{
+.search-box {
     background-color: aquamarine;
-    width:100px;
+    width: 100px;
     height: 150px;
 }
+
+.searchImg{
+height: 160px;
+width: 160px; 
+border-radius: 8px;
+
+}
+
+
+.camp-card {
+  width: 640px;
+}
+
+@media (max-width: 576px) {
+  .camp-card {
+    width: 100%; /* 或改成 100% 以滿版更好 */
+    margin-right: 0; /* 避免手機太擠 */
+  }
+}
+
