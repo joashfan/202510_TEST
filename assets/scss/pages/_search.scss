@@ -4,11 +4,18 @@
     height: 150px;
 }
 
-.searchImg{
-height: 160px;
-width: 160px; 
-border-radius: 8px;
+.searchImg {
+  /* 預設: 寬版縮圖尺寸 */
+  width: 160px; 
+  height: 160px;
+  border-radius: 8px;
 
+  /* 針對 RWD 手機版 (< 400px): 覆寫為滿版寬度 */
+  @media (max-width: 400px) {
+    width: 100%;       /* 滿版寬度 */
+    height: auto;      /* 高度自適應，不鎖死 */
+    /* 如果您想在手機上保持方形比例 (1:1)，則需要配合 ratio 容器 */
+  }
 }
 
 
