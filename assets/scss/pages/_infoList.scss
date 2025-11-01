@@ -1,0 +1,622 @@
+/* 引入 AOS 樣式 */
+@import url('https://unpkg.com/aos@2.3.1/dist/aos.css');
+
+
+.info-link {
+    text-decoration: none;
+    color: $neutral-500;
+    display: block;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    /* 增加 transform 過渡 */
+}
+
+.info-link:hover {
+    color: $primary-300;
+    transform: translateX(7px);
+    /* 往右輕微移動 */
+}
+
+.info-post {
+    border-style: dotted;
+    border-width: 0px 0px 1px 0px;
+    margin:0 1rem 1rem ;
+    border-color: $secondary-300;
+}
+
+
+/* 通用排版與背景 */
+.infoList-bg {
+    position: relative;
+    /* 相對定位容器 */
+    padding: 80px 50px;
+    /* 上下左右內距，可調整 */
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* 防止橫向滾動 */
+    background-color: $primary-300;
+    /* 輕微的背景色讓內容更突出 */
+}
+
+/* 背景底圖層 */
+.infoList-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/images/background01.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    /* 背景透明度 */
+    z-index: 0;
+    /* 放在最底層 */
+    /* 新增：Parallax 效果相關 */
+    background-attachment: fixed;
+    /* 讓背景固定，前景滾動，產生視覺差 */
+    transition: background-position 0.1s ease-out;
+    /* 平滑滾動 */
+
+}
+
+/* 文章卡片內容在上層 */
+.infoList-bg>* {
+    position: relative;
+    z-index: 1;
+}
+
+.info-card {
+    width: 90%;
+}
+
+.info-icon {
+    width: 10%;
+    position: absolute;
+    top: 80%;
+    right: 2%;
+    z-index: 10;
+    /* 改成正值 */
+    pointer-events: none;
+    /* 不影響點擊事件 */
+}
+
+
+.text-break {
+    display: -webkit-box;
+    word-break: break-word;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    /* 顯示3行 */
+    line-clamp: 3;
+    overflow: hidden;
+
+}
+
+.infoImg {
+    display: flex;
+    height: 180px;
+    width: 240px;
+    border-radius: 8px;
+    justify-content: center;
+
+}
+
+
+
+/* 頁面主文章標題 */
+.main-article-title {
+    color: $primary-800;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    /* 更明顯的陰影 */
+}
+
+
+
+/* ===== RWD 調整 ===== */
+@media (max-width: 992px) {
+
+    /* 平板 */
+    .text-limit {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* 手機 */
+    .search-container {
+        margin: 40px auto;
+    }
+
+    .text-limit {
+        -webkit-line-clamp: 3;
+        /* 顯示 3 行 */
+        line-clamp: 3;
+
+    }
+
+    .card .col-md-8 {
+        align-items: flex-start;
+        /* 手機上改靠上 */
+    }
+
+    .info-card {
+        width: 100%;
+        /* 或改成 100% 以滿版更好 */
+        margin-right: 0;
+        /* 避免手機太擠 */
+    }
+
+}
+
+
+
+/* 自定義行間距，確保左右不會太擠 */
+.custom-row-spacing {
+    --bs-gutter-x: 2rem;
+    /* 增加左右間距 */
+}
+
+/* 右側邊欄區塊 */
+.sidebar-section {
+    /* bg-primary-50 已在 HTML 中定義 */
+    border-radius: 8px;
+    /* 增加圓角 */
+    /* box-shadow 放在 .sidebar-widgets 和 #article-progress-nav */
+}
+
+.sidebar-widgets {
+    /* 搜尋與熱門文章的包裝器 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* 輕微陰影 */
+}
+
+/* 搜尋按鈕 hover 效果 */
+.btn-search {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 熱門文章列表 */
+.popular-posts {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.popular-posts h4 {
+    color: var(--primary-700);
+    border-bottom: 1px solid var(--secondary-200);
+    padding-bottom: 10px;
+}
+
+
+
+
+
+/* 左側主文章內容區塊 */
+.article-content-section {
+    background-color: #fff;
+    /* 文章背景為白色 */
+    padding: 30px;
+    /* 內距 */
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    /* 增加陰影提升質感 */
+    line-height: 1.8;
+    /* 提升閱讀舒適度 */
+    color: #333;
+}
+
+.article-content-section p {
+    margin-bottom: 1.5rem;
+    /* 段落間距 */
+}
+
+.article-content-section ul {
+    margin-bottom: 1.5rem;
+    padding-left: 25px;
+    /* 列表左邊距 */
+}
+
+.article-content-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.article-content-section strong {
+    color: $primary-700; /* 強調文字顏色 */
+}
+
+
+/* 文章區塊標題 */
+.section-title {
+    font-size: 2rem;
+    color: $primary-200;
+    border-left: 5px solid $primary-100; /* 左側裝飾線 */
+    padding-left: 15px;
+    transition: transform 0.5s ease-out;
+    /* 增加hover效果的過渡 */
+}
+
+.section-title:hover {
+    transform: translateX(60px);
+    /* hover 時輕微移動 */
+}
+
+
+/* 文章子標題 (應用於手風琴按鈕) */
+.subsection-title {
+    font-size: 1.3rem;
+    /* 略微縮小 */
+    color: $gray-800; /* 使用更深的灰色 */
+    font-weight: 600;
+    /* 加粗 */
+    margin-top: 0;
+    /* 移除原有的 margin-top, 讓手風琴控制 */
+    margin-bottom: 0;
+    /* 移除原有的 margin-bottom, 讓手風琴控制 */
+    border-bottom: none;
+    /* 手風琴按鈕不需要底部虛線 */
+    padding-bottom: 0;
+    /* 移除原有 padding */
+    width: 100%;
+    text-align: left;
+    transition: color 0.2s ease-in-out;
+}
+
+.subsection-title:hover {
+    color: $primary-600;
+}
+
+/* 文章圖片 (續) */
+.article-image-sm {
+    max-width: 60%;
+    /* 小圖尺寸 */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* 輕微陰影 */
+    border-radius: 6px;
+    /* 圓角 */
+}
+
+/* 老手心法段落 */
+.old-hand-tip {
+    background-color: $primary-50; /* 淺綠色背景 */
+    border-left: 4px solid var(--primary-500);
+    /* 左側強調線 */
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    /* 斜體 */
+    color: $gray-700;
+    line-height: 1.6;
+}
+
+/* 
+/* ==================================== */
+/* 新增：文章目錄/閱讀進度導覽 樣式 */
+/* ==================================== */
+/* 設置目錄欄的寬度和位置 */
+#article-progress-nav {
+    position: fixed;
+    /* 使導航欄固定 */
+    top: 150px;
+    /* 距離頁面頂部 20px */
+    right: 25;
+    /* 固定在右邊 */
+    max-width: 100vh;
+    /* 設定寬度 */
+    max-height: 100vh;
+    /* 避免內容超過視窗高度 */
+    overflow-y: auto;
+    /* 讓超出部分可以滾動 */
+    padding: 10px;
+    /* 內邊距 */
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 1);
+    /* 給導航欄加點陰影效果 */
+    /* 與文章內容區塊相似的陰影 */
+    z-index: 10;
+    /* 確保導航欄不被其他元素遮擋 */
+    transition: transform 0.3s ease;
+    /* 加入過渡效果 */
+    transform: translateX(0%);
+    /* 初始狀態為顯示 */
+
+
+}
+
+/* 當導航欄被隱藏時 */
+#article-progress-nav.hidden {
+    transform: translateX(0%);
+    /* 向左移動 10%，隱藏導航欄 */
+    max-width: 100vh;
+    /* 設定寬度 */
+    max-height: 10vh;
+    /* 避免內容超過視窗高度 */
+    overflow-y: hidden
+        /* 讓超出部分可以滾動 */
+
+}
+
+/* 讓導航欄內部內容的排版更整齊 */
+#article-progress-nav h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $primary-700;
+}
+
+
+/* 進度條容器 */
+.progress-bar-container {
+    height: 8px;
+    background-color: $secondary-100;
+    overflow: hidden;
+    /* 確保填充條不溢出 */
+}
+
+/* 進度條填充 */
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    /* 初始為 0% */
+    transition: width 0.1s linear;
+    /* 平滑過渡 */
+}
+
+#article-progress-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#article-progress-nav ul li {
+    margin-bottom: 8px;
+}
+
+#article-progress-nav ul li a {
+    display: block;
+    padding: 8px 10px;
+    color: $gray-700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    position: relative;
+    /* 用於活躍指示點 */
+    padding-left: 25px;
+    /* 為活躍指示點留空間 */
+}
+
+#article-progress-nav ul li a:hover {
+    color: $primary-700;
+    background-color: $primary-50;
+    transform: translateX(3px);
+    /* 輕微移動 */
+}
+
+#article-progress-nav ul li a.active {
+    background-color: $primary-600;
+    color: #fff;
+    font-weight: bold;
+    transform: translateX(0);
+    /* 活躍時不移動 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 活躍指示點 */
+#article-progress-nav ul li a.active::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    /* 白色圓點 */
+    border-radius: 50%;
+    border: 1px solid $primary-300;
+}
+
+
+/* ===== RWD 調整 ===== */
+@media (max-width: 992px) {
+
+    /* 平板 */
+    .infoList-bg {
+        padding: 60px 20px;
+    }
+
+    .main-article-title {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+
+    .article-content-section {
+        padding: 20px;
+        padding-left: 270px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        padding-left: 10px;
+    }
+
+    /* subsection-title 由於是手風琴按鈕，保持一致 */
+    .article-image {
+        max-width: 50%;
+    }
+
+    .article-image-sm {
+        max-width: 70%;
+    }
+
+    /* 側邊欄的 sticky-top 在平板上可能會有佈局問題，或是不需要 */
+    #article-progress-nav {
+        top: 15px;
+        /* 調整距離頂部的距離 */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 更小的平板，或考慮手機橫向 */
+    .accordion-button {
+        font-size: 1.2rem;
+        padding: 12px 15px;
+    }
+
+    .accordion-body {
+        padding: 15px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    /* 手機 */
+    .infoList-bg {
+        padding: 30px 10px;
+    }
+
+    .main-article-title {
+        font-size: 1.75rem;
+        text-align: left !important;
+        /* 手機標題靠左 */
+        padding: 0 10px;
+        /* 增加左右內距 */
+    }
+
+    .lead {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .sidebar-section {
+        /* 手機上隱藏整個右側邊欄 */
+        display: none !important;
+    }
+
+    .article-content-section {
+        padding: 15px;
+        margin-top: 15px;
+        /* 與主標題有些距離 */
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        padding-left: 8px;
+    }
+
+    /* subsection-title 由於是手風琴按鈕，在手機上也可以保持較大字體，或略微縮小 */
+    .accordion-button {
+        font-size: 1.1rem;
+        padding: 10px 12px;
+    }
+
+    .accordion-body {
+        padding: 12px;
+    }
+
+
+    .old-hand-tip {
+        padding: 10px 15px;
+    }
+}
+
+/* AOS 預設持續時間為 400ms，我們設為 800ms，並使用 ease-out-quad */
+[data-aos] {
+    transition-property: opacity, transform;
+}
+
+// #section-1 { background-color: #e65656; }
+// #section-2 { background-color: #50106e; }
+// #section-3 { background-color: #fff7e6; }
+
+.infosection2-bg {
+  box-shadow: 0 4px 12px rgba(85, 57, 2,1);
+}
+
+.infosection4-bg {
+  box-shadow: 0 4px 12px rgb(2, 67, 24,1);
+}
+.infosection6-bg {
+  box-shadow: 0 4px 12px rgb(105, 81, 10);
+  background: linear-gradient(180deg,$primary-100 0%,$primary-50 60%);
+}
+
+
+/* SVG波浪背景 */
+.wave {
+  position: absolute;
+  left: 0;
+  max-width: 100vw;        /* 全螢幕寬 */
+  overflow: hidden;
+  display: block;
+  z-index: 1;
+}
+
+
+.wave.top {
+top: 0;
+transform: rotate(180deg);
+ }
+ 
+.wave.top.layer-1 {
+  top: 30px;
+  /* 第一層波浪，較為基礎 */
+}
+ .wave.top.layer-2 {
+  top: 50px; /* 稍微往下偏移，與第一層錯開 */
+  right: 100px;
+}
+
+.wave.bottom {
+bottom: 0;
+}
+
+.abouts {
+  position: relative;
+  z-index: 3;
+  margin-top: -50px; /* 可依需要微調讓文字靠近波浪 */
+}
+
+
+.aboutSection {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      background: $primary-50;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      backdrop-filter: blur(6px);
+    }
+
+.aboutSection h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-top: 2rem;
+    }
+
+.aboutSection p {
+      text-align: justify;
+      margin: 1rem 0;
+    }

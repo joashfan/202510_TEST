@@ -1,0 +1,158 @@
+.py-70px {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.hero-decoration {
+    width: 728px;
+    height: auto;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    pointer-events: none; // 裝飾圖不影響互動
+}
+
+.bg-primary-50 {
+    background-color: $primary-50;
+}
+
+.card.selectable {
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: $box-shadow-lg;
+    }
+}
+
+/* 當 input 被選中，對應的 label 加陰影 */
+.card-input:checked+.card.selectable {
+    box-shadow: $box-shadow-lg;
+    border-color: var(--bs-primary); // 可加邊框顏色強調
+}
+
+.card img {
+    display: block;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.divider {
+    width: 516px;
+    /* 或 100%、或 Figma 上量的值 */
+    border-top: 1px solid #609451;
+    /* Primary/200 */
+    margin: 0 auto;
+    /* 水平置中 */
+
+}
+
+.card.gradient-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 60%,
+            rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card.gradient-overlay .card-img-overlay {
+    position: absolute;
+    z-index: 2;
+}
+
+@media (min-width:776px) {
+    .w-lg-50 {
+        width: 50%;
+
+    }
+}
+
+.featured-articles .card {
+    max-width: 612px;
+    max-height: 160px;
+    flex: 0 0 auto;
+}
+
+@media (min-width:776px) {
+    .featured-articles .card {
+        flex: 0 0 auto;
+    }
+}
+
+.lh-15 {
+    line-height: 1.5;
+}
+
+
+/* 手機先：可以橫滑 */
+.featured-articles {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    /* iOS 順滑 */
+}
+
+.featured-articles .featured-card {
+    /* 讓卡片不要被壓到只有一點點 */
+    flex: 0 0 auto;
+}
+
+/* 到 lg 之後，回到正常排版、不用橫滑 */
+@media (min-width: 992px) {
+    .featured-articles {
+        overflow-x: visible;
+        flex-wrap: wrap;
+    }
+
+    .featured-articles .featured-card {
+        flex: 0 0 calc(50% - 1rem);
+        /* 兩張一排 */
+    }
+}
+
+.region-card {
+    width: 100%;
+    max-width: 310px;
+    /* 保留你原本的寬度上限 */
+    height: 212px;
+    border: 0;
+    overflow: hidden;
+}
+
+.region-card .card-img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.region-line {
+    height: 1px;
+    opacity: 1;
+}
+
+/* 手機時：hr 不要 516px 那種死寬 */
+@media (max-width: 991.98px) {
+    .region-card {
+        max-width: 100%;
+        /* 小螢幕就放到全寬，別卡 310 */
+    }
+
+    .region-line {
+        width: auto;
+    }
+
+
+}
+
+/* 到 md 以上：兩張卡片橫排 */
+@media (min-width: 768px) {
+    .region-card {
+        max-width: 100%;
+        /* 交給 flex 去分 */
+    }
+}
